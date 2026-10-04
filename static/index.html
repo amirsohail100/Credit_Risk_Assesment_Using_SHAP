@@ -4,7 +4,6 @@
 <meta charset="UTF-8" />
 <meta name="viewport" content="width=device-width, initial-scale=1.0" />
 <title>Credit Ledger — Loan Risk Assessment</title>
-<link rel="icon" type="image/svg+xml" href="/assets/icon.svg">
 <link rel="preconnect" href="https://fonts.googleapis.com" />
 <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
 <link href="https://fonts.googleapis.com/css2?family=Source+Serif+4:opsz,wght@8..60,400;8..60,500;8..60,600&family=IBM+Plex+Sans:wght@400;500;600&family=IBM+Plex+Mono:wght@400;500;600&display=swap" rel="stylesheet" />
@@ -49,7 +48,7 @@
         <label for="person_income">Annual income</label>
         <div class="field">
           <span class="unit unit--prefix">₹</span>
-          <input type="number" id="person_income" name="person_income" min="0" step="1000" value="600000" required />
+          <input type="number" id="person_income" name="person_income" data-words min="0" step="1000" value="600000" required />
         </div>
       </div>
 
@@ -110,7 +109,7 @@
         <label for="loan_amnt">Loan amount</label>
         <div class="field">
           <span class="unit unit--prefix">₹</span>
-          <input type="number" id="loan_amnt" name="loan_amnt" min="0" step="500" value="100000" required />
+          <input type="number" id="loan_amnt" name="loan_amnt" data-words min="0" step="500" value="100000" required />
         </div>
       </div>
 
@@ -155,10 +154,14 @@
     </fieldset>
 
     <div class="submit-row">
-      <button type="submit" id="submitBtn">
-        <span class="btn-label">Assess risk</span>
-        <span class="btn-spinner" aria-hidden="true"></span>
-      </button>
+      <div class="btn-group">
+        <button type="button" id="resetBtn" class="btn btn--ghost">Reset form</button>
+        <button type="submit" id="submitBtn" class="btn btn--primary">
+          <span class="btn-label">Assess risk</span>
+          <span class="btn-spinner" aria-hidden="true"></span>
+          <svg class="btn-arrow" viewBox="0 0 16 16" aria-hidden="true"><path d="M3 8h10M9 4l4 4-4 4"/></svg>
+        </button>
+      </div>
       <p class="error-note" id="errorNote" role="alert" hidden></p>
     </div>
 
@@ -196,12 +199,31 @@
             <dd id="factThreshold">—</dd>
           </div>
           <div>
+            <dt>Margin to threshold</dt>
+            <dd id="factMargin">—</dd>
+          </div>
+          <div>
             <dt>Model verdict</dt>
             <dd id="factResult">—</dd>
           </div>
         </dl>
       </div>
 
+    </div>
+
+    <p class="verdict__summary" id="verdictSummary"></p>
+
+    <div class="meter" aria-hidden="true">
+      <div class="meter__bar"><div class="meter__fill" id="meterFill"></div><div class="meter__tick" id="meterTick"></div></div>
+      <div class="meter__scale"><span>0%</span><span id="meterTickLabel">threshold</span><span>100%</span></div>
+    </div>
+
+    <div class="verdict__actions">
+      <span class="verdict__time" id="verdictTime"></span>
+      <div class="btn-group">
+        <button type="button" id="editBtn" class="btn btn--ghost btn--sm">Edit inputs</button>
+        <button type="button" id="copyBtn" class="btn btn--outline btn--sm">Copy summary</button>
+      </div>
     </div>
   </section>
 
