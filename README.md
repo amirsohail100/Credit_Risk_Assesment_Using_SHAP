@@ -97,3 +97,26 @@ Returns the default probability and risk verdict for one loan application.
   "cb_person_cred_hist_length": 6
 }
 ```
+
+**Response fields**
+
+| Field                 | Description                               |
+| --------------------- | ----------------------------------------- |
+| `default_probability` | Calibrated probability of default (0 – 1) |
+| `threshold`           | Optimized decision threshold (0 – 1)      |
+| `default_prediction`  | `1` = high risk, `0` = low risk           |
+| `Result`              | Human-readable verdict                    |
+
+**Example with cURL**
+
+```bash
+curl -X POST http://127.0.0.1:8000/predict \
+  -H "Content-Type: application/json" \
+  -d '{"person_age":30,"person_income":600000,"person_home_ownership":"RENT","person_emp_length":5,"loan_intent":"PERSONAL","loan_grade":"B","loan_amnt":100000,"loan_int_rate":11.5,"loan_percent_income":0.17,"cb_person_default_on_file":"N","cb_person_cred_hist_length":6}'
+```
+
+### `GET /openapi.json`
+
+OpenAPI schema. The UI also uses it as a health check for the _service status_ indicator.
+
+---
