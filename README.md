@@ -1,6 +1,24 @@
-# Credit Ledger — Loan Risk Assessment
+<div align="center">
 
-An underwriting desk for consumer loan applications. Credit Ledger takes an applicant's profile, loan request and credit bureau details, and returns the **probability that the applicant will default**, along with a clear **high / low risk verdict**.
+<img src="assets/icon/icon.svg" alt="Quadra logo" width="120" height="120" />
+
+# Quadra
+
+### Credit Ledger — Loan Risk Assessment
+
+_An underwriting desk for consumer loan applications._
+
+<br />
+
+![Python](https://img.shields.io/badge/Python-3.9%2B-blue?logo=python&logoColor=white)
+![FastAPI](https://img.shields.io/badge/FastAPI-009688?logo=fastapi&logoColor=white)
+![SHAP](https://img.shields.io/badge/Explainability-SHAP-orange)
+
+</div>
+
+---
+
+**Quadra's Credit Ledger** takes an applicant's profile, loan request and credit bureau details, and returns the **probability that the applicant will default**, along with a clear **high / low risk verdict**.
 
 The backend (API) and the frontend (UI) are served from the **same server**, so a single command is enough to run the whole app locally.
 
@@ -12,13 +30,13 @@ The backend (API) and the frontend (UI) are served from the **same server**, so 
 
 The form the user sees when they open the website.
 
-![Credit Ledger — input form](assets/UI_1.png)
+![Credit Ledger — input form](assets/ui/1.png)
 
 ### Prediction result
 
 The result panel shown after the user clicks **Assess risk**.
 
-![Credit Ledger — prediction result](assets/UI_2.png)
+![Credit Ledger — prediction result](assets/ui/2.png)
 
 ---
 
@@ -71,6 +89,80 @@ This lets us verify that the model relies on sensible signals (such as loan grad
 | `loan_percent_income`        | Loan amount as a ratio of income | 0 – 1 (auto-calculated)                                                               |
 | `cb_person_default_on_file`  | Prior default on credit file     | `Y`, `N`                                                                              |
 | `cb_person_cred_hist_length` | Credit history length            | 0 – 60 years                                                                          |
+
+---
+
+## Tech Stack
+
+- **Backend:** Python, FastAPI, Uvicorn
+- **Frontend:** HTML, CSS, vanilla JavaScript (served as static files)
+- **ML:** Threshold optimization, probability calibration, SHAP for explainability
+
+---
+
+## Project Structure
+
+```
+.
+├── main.py              # FastAPI app (API + static file serving)
+├── requirements.txt     # Python dependencies
+├── static/
+│   ├── index.html       # UI markup
+│   ├── style.css        # Styling
+│   └── script.js        # Form logic, API calls, result rendering
+└── assets/
+    ├── icon/
+    │   └── icon.svg     # Quadra brand logo
+    └── ui/
+        ├── 1.png        # Landing view screenshot
+        └── 2.png        # Prediction result screenshot
+```
+
+> Your repository may contain additional files (trained model, notebooks, etc.). Adjust this tree as needed.
+
+---
+
+## Getting Started
+
+### Prerequisites
+
+- Python 3.9 or higher
+- `pip` and `git`
+
+### 1. Clone the repository
+
+```bash
+git clone https://github.com/<your-username>/<your-repo-name>.git
+cd <your-repo-name>
+```
+
+### 2. (Recommended) Create a virtual environment
+
+```bash
+python -m venv venv
+
+# Linux / macOS
+source venv/bin/activate
+
+# Windows
+venv\Scripts\activate
+```
+
+### 3. Install dependencies
+
+```bash
+pip install -r requirements.txt
+```
+
+### 4. Run the app
+
+```bash
+uvicorn main:app --reload
+```
+
+The app is now running at **http://127.0.0.1:8000**. Open it in your browser to use the UI.
+
+Since this is a FastAPI app, interactive API docs are also available at **http://127.0.0.1:8000/docs**.
 
 ---
 
