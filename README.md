@@ -30,13 +30,13 @@ The backend (API) and the frontend (UI) are served from the **same server**, so 
 
 The form the user sees when they open the website.
 
-![Credit Ledger — input form](assets/UI_1.png)
+![Credit Ledger — input form](assets/ui/1.png)
 
 ### Prediction result
 
 The result panel shown after the user clicks **Assess risk**.
 
-![Credit Ledger — prediction result](assets/UI_2.png)
+![Credit Ledger — prediction result](assets/ui/2.png)
 
 ---
 
@@ -55,16 +55,6 @@ The result panel shown after the user clicks **Assess risk**.
 
 ## Machine Learning Highlights
 
-## Model Evaluation & Explainability
-
-### 1. Confusion Matrix (Best Model)
-
-Performance of the best model on the test set, using the optimized decision threshold.
-
-<p align="center">
-  <img src="assets/plots/confusion_matrix.png" alt="Confusion matrix of the best model" width="600" />
-</p>
-
 ### Threshold Optimization
 
 Instead of relying on the default `0.5` cut-off, the decision threshold is **optimized** for this problem. Credit-default data is typically imbalanced, so a tuned threshold gives a better balance between catching risky applicants and not rejecting good ones. The tuned value is returned by the API and displayed in the UI as the _Decision threshold_.
@@ -81,6 +71,42 @@ The project uses the **[SHAP](https://github.com/shap/shap)** library to underst
 - **In which direction** it contributes: a _positive_ contribution pushes the applicant towards default, a _negative_ contribution pushes towards non-default.
 
 This lets us verify that the model relies on sensible signals (such as loan grade, interest rate or loan-to-income ratio) and makes its decisions transparent rather than a black box.
+
+---
+
+## Model Evaluation & Explainability
+
+### 1. Confusion Matrix (Best Model)
+
+Performance of the best model on the test set, using the optimized decision threshold.
+
+<p align="center">
+  <img src="assets/plots/confusion_matrix.png" alt="Confusion matrix of the best model" width="600" />
+</p>
+
+### 2. Probability Calibration Curve
+
+Reliability diagram comparing predicted probabilities with actual default rates. The dashed line is a perfectly calibrated model. The calibrated model (orange) follows it more closely than the uncalibrated one (blue) across most of the probability range.
+
+<p align="center">
+  <img src="assets/plots/calibration_curve.png" alt="Calibration curve: uncalibrated vs calibrated" width="600" />
+</p>
+
+### 3. SHAP Summary Plot (Global Explanation)
+
+Shows which features matter most across all predictions. Each dot is one applicant. Dots to the right push the prediction towards **default**, dots to the left push it towards **non-default**, and the colour shows whether the feature value is high (red) or low (blue).
+
+<p align="center">
+  <img src="assets/plots/shap_summary.png" alt="SHAP summary plot" width="650" />
+</p>
+
+### 4. SHAP Waterfall Plot (Single Prediction)
+
+Explains one individual prediction. Starting from the average model output `E[f(X)]`, each bar shows how a feature pushes the result up (red, positive) or down (blue, negative) to reach the final output `f(x)`.
+
+<p align="center">
+  <img src="assets/plots/shap_waterfall.png" alt="SHAP waterfall plot for a single prediction" width="650" />
+</p>
 
 ---
 
@@ -123,6 +149,11 @@ This lets us verify that the model relies on sensible signals (such as loan grad
 └── assets/
     ├── icon/
     │   └── icon.svg     # Quadra brand logo
+    ├── plots/
+    │   ├── confusion_matrix.png
+    │   ├── calibration_curve.png
+    │   ├── shap_summary.png
+    │   └── shap_waterfall.png
     └── ui/
         ├── 1.png        # Landing view screenshot
         └── 2.png        # Prediction result screenshot
@@ -142,8 +173,8 @@ This lets us verify that the model relies on sensible signals (such as loan grad
 ### 1. Clone the repository
 
 ```bash
-git clone https://github.com/amirsohail100/Credit_Risk_Assesment_Using_SHAP.git
-cd Credit_Risk_Assesment_Using_SHAP
+git clone https://github.com/<your-username>/<your-repo-name>.git
+cd <your-repo-name>
 ```
 
 ### 2. (Recommended) Create a virtual environment
