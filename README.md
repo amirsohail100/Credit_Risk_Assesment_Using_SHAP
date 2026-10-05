@@ -132,8 +132,8 @@ This lets us verify that the model relies on sensible signals (such as loan grad
 ### 1. Clone the repository
 
 ```bash
-git clone https://github.com/<your-username>/<your-repo-name>.git
-cd <your-repo-name>
+git clone https://github.com/amirsohail100/Credit_Risk_Assesment_Using_SHAP.git
+cd Credit_Risk_Assesment_Using_SHAP
 ```
 
 ### 2. (Recommended) Create a virtual environment
