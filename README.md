@@ -12,13 +12,13 @@ The backend (API) and the frontend (UI) are served from the **same server**, so 
 
 The form the user sees when they open the website.
 
-![Credit Ledger — input form](assets/ui/1.png)
+![Credit Ledger — input form](assets/UI_1.png)
 
 ### Prediction result
 
 The result panel shown after the user clicks **Assess risk**.
 
-![Credit Ledger — prediction result](assets/ui/2.png)
+![Credit Ledger — prediction result](assets/UI_2.png)
 
 ---
 
