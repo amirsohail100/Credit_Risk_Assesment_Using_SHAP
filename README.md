@@ -75,3 +75,25 @@ This lets us verify that the model relies on sensible signals (such as loan grad
 ---
 
 ## API Reference
+
+### `POST /predict`
+
+Returns the default probability and risk verdict for one loan application.
+
+**Request body**
+
+```json
+{
+  "person_age": 30,
+  "person_income": 600000,
+  "person_home_ownership": "RENT",
+  "person_emp_length": 5,
+  "loan_intent": "PERSONAL",
+  "loan_grade": "B",
+  "loan_amnt": 100000,
+  "loan_int_rate": 11.5,
+  "loan_percent_income": 0.17,
+  "cb_person_default_on_file": "N",
+  "cb_person_cred_hist_length": 6
+}
+```
