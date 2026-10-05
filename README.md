@@ -30,13 +30,13 @@ The backend (API) and the frontend (UI) are served from the **same server**, so 
 
 The form the user sees when they open the website.
 
-![Credit Ledger — input form](assets/ui/1.png)
+![Credit Ledger — input form](assets/UI_1.png)
 
 ### Prediction result
 
 The result panel shown after the user clicks **Assess risk**.
 
-![Credit Ledger — prediction result](assets/ui/2.png)
+![Credit Ledger — prediction result](assets/UI_2.png)
 
 ---
 
@@ -173,8 +173,8 @@ Explains one individual prediction. Starting from the average model output `E[f(
 ### 1. Clone the repository
 
 ```bash
-git clone https://github.com/<your-username>/<your-repo-name>.git
-cd <your-repo-name>
+git clone https://github.com/amirsohail100/Credit_Risk_Assesment_Using_SHAP.git
+cd Credit_Risk_Assesment_Using_SHAP
 ```
 
 ### 2. (Recommended) Create a virtual environment
