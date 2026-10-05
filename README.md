@@ -21,3 +21,16 @@ The result panel shown after the user clicks **Assess risk**.
 ![Credit Ledger — prediction result](assets/ui/2.png)
 
 ---
+
+## Features
+
+- **Default probability prediction** for a loan application, shown on an animated gauge.
+- **High / Low risk verdict** with a stamp badge, a plain-language summary and a threshold meter.
+- **Margin to threshold**: how many points the probability sits above or below the decision threshold.
+- **Auto-calculated loan-to-income ratio** (can be manually overridden).
+- **Interactive form**: number steppers, custom keyboard-friendly dropdowns, amount shown in Lakh / Crore, and inline validation.
+- **Copy summary** button to copy the assessment result.
+- **Live service status** indicator in the header.
+- Responsive layout that works on desktop and mobile.
+
+---
