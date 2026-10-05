@@ -120,3 +120,7 @@ curl -X POST http://127.0.0.1:8000/predict \
 OpenAPI schema. The UI also uses it as a health check for the _service status_ indicator.
 
 ---
+
+## Disclaimer
+
+Figures are model estimates, not a lending decision. This project is for educational and reference purposes only.
