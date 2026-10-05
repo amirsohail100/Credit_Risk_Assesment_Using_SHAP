@@ -34,3 +34,24 @@ The result panel shown after the user clicks **Assess risk**.
 - Responsive layout that works on desktop and mobile.
 
 ---
+
+## Machine Learning Highlights
+
+### Threshold Optimization
+
+Instead of relying on the default `0.5` cut-off, the decision threshold is **optimized** for this problem. Credit-default data is typically imbalanced, so a tuned threshold gives a better balance between catching risky applicants and not rejecting good ones. The tuned value is returned by the API and displayed in the UI as the _Decision threshold_.
+
+### Probability Calibration
+
+Raw model scores are not always true probabilities. **Probability calibration** is applied so that the predicted default probability reflects the real likelihood of default (for example, applicants scored at ~30% actually default about 30% of the time). This makes the percentage shown in the UI meaningful and keeps the optimized threshold reliable.
+
+### Explainability with SHAP
+
+The project uses the **[SHAP](https://github.com/shap/shap)** library to understand the model's behaviour. With SHAP we analyze:
+
+- **How much** each feature contributes to a prediction.
+- **In which direction** it contributes: a _positive_ contribution pushes the applicant towards default, a _negative_ contribution pushes towards non-default.
+
+This lets us verify that the model relies on sensible signals (such as loan grade, interest rate or loan-to-income ratio) and makes its decisions transparent rather than a black box.
+
+---
