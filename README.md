@@ -55,3 +55,21 @@ The project uses the **[SHAP](https://github.com/shap/shap)** library to underst
 This lets us verify that the model relies on sensible signals (such as loan grade, interest rate or loan-to-income ratio) and makes its decisions transparent rather than a black box.
 
 ---
+
+## Input Features
+
+| Field                        | Description                      | Valid values                                                                          |
+| ---------------------------- | -------------------------------- | ------------------------------------------------------------------------------------- |
+| `person_age`                 | Applicant's age                  | 18 – 100 years                                                                        |
+| `person_income`              | Annual income (₹)                | ≥ 0                                                                                   |
+| `person_home_ownership`      | Home ownership status            | `RENT`, `MORTGAGE`, `OWN`, `OTHER`                                                    |
+| `person_emp_length`          | Employment length                | 0 – 60 years                                                                          |
+| `loan_intent`                | Purpose of the loan              | `PERSONAL`, `EDUCATION`, `MEDICAL`, `VENTURE`, `HOMEIMPROVEMENT`, `DEBTCONSOLIDATION` |
+| `loan_grade`                 | Loan grade                       | `A` – `G`                                                                             |
+| `loan_amnt`                  | Requested loan amount (₹)        | ≥ 0                                                                                   |
+| `loan_int_rate`              | Interest rate                    | 0 – 40 %                                                                              |
+| `loan_percent_income`        | Loan amount as a ratio of income | 0 – 1 (auto-calculated)                                                               |
+| `cb_person_default_on_file`  | Prior default on credit file     | `Y`, `N`                                                                              |
+| `cb_person_cred_hist_length` | Credit history length            | 0 – 60 years                                                                          |
+
+---
