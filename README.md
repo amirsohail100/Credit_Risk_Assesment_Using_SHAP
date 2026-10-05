@@ -55,6 +55,16 @@ The result panel shown after the user clicks **Assess risk**.
 
 ## Machine Learning Highlights
 
+## Model Evaluation & Explainability
+
+### 1. Confusion Matrix (Best Model)
+
+Performance of the best model on the test set, using the optimized decision threshold.
+
+<p align="center">
+  <img src="assets/plots/confusion_matrix.png" alt="Confusion matrix of the best model" width="600" />
+</p>
+
 ### Threshold Optimization
 
 Instead of relying on the default `0.5` cut-off, the decision threshold is **optimized** for this problem. Credit-default data is typically imbalanced, so a tuned threshold gives a better balance between catching risky applicants and not rejecting good ones. The tuned value is returned by the API and displayed in the UI as the _Decision threshold_.
